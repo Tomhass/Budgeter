@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "518687974292",
+    "firebase_url": "https://budgeter-9eed5.firebaseio.com",
+    "project_id": "budgeter-9eed5",
+    "storage_bucket": "budgeter-9eed5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518687974292:android:98a71352b7e7979a856581",
+        "android_client_info": {
+          "package_name": "com.example.budgeter_v02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518687974292-2r9a32l0njpeg042kcbl6cgqvervb155.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkP89Lfw3BZ-uK_bywqz8xfi6lsgMFurs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518687974292-2r9a32l0njpeg042kcbl6cgqvervb155.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
