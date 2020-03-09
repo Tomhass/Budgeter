@@ -114,10 +114,9 @@ public class SetupActivity extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error adding document", e);
+                                Log.w(TAG, "Error adding document WARNING THIS IS ERROR MESSAGE THOMAS ", e);
                             }
                         });
-
 
                 startActivity(new Intent(SetupActivity.this, InfoActivity.class));
 
