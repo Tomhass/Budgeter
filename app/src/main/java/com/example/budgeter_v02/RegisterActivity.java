@@ -20,6 +20,8 @@ import com.google.firestore.v1.FirestoreGrpc;
 
 import java.util.Set;
 
+import javax.security.auth.login.LoginException;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private String TAG = "BudgeterAppTest";
@@ -46,7 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
             String pw;
             String name;
 
-
             @Override
             public void onClick(View v) {
                 email = emailTextBox.getText().toString();
@@ -61,19 +62,15 @@ public class RegisterActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                    startActivity(new Intent(RegisterActivity.this, SetupActivity.class));
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
 
                                     Toast.makeText(getApplicationContext(),"WHATS UP",Toast.LENGTH_SHORT).show();
                                 }
-
-
                             }
                         });
-
-                emailTextBox.setText("TEST");
             }
         });
 

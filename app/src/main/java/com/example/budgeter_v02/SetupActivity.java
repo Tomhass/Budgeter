@@ -33,6 +33,7 @@ public class SetupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
 
+        // Initialising UI elements
         configureContinueButton();
         configureIncomeSeekBar();
         configureSavingSeekBar();
@@ -41,22 +42,19 @@ public class SetupActivity extends AppCompatActivity {
     private void configureIncomeSeekBar() {
         final SeekBar incomeSeekBar = findViewById(R.id.Income_SeekBar);
         final TextView incomeTextView = findViewById(R.id.Income_Text);
-
+        // When SeekBar is changed
         incomeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             // Variable to get current progress of SeekBar
             int y;
-
+            // When progress is changed
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 y = seekBar.getProgress();
                 incomeTextView.setText(String.valueOf(y));
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 income = y;
@@ -73,18 +71,13 @@ public class SetupActivity extends AppCompatActivity {
         savingSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             // Variable to get current progress of SeekBar
             int y;
-
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 y = seekBar.getProgress();
                 savingTextView.setText(String.valueOf(y));
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) { }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 continueButton.setVisibility(View.VISIBLE);
@@ -92,7 +85,6 @@ public class SetupActivity extends AppCompatActivity {
             }
         });
     }
-
     private void configureContinueButton() {
         final Button continueButton = findViewById(R.id.Continue_Button);
 
