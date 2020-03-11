@@ -7,39 +7,6 @@
     tools:context=".InfoActivity">
 
     <TextView
-        android:id="@+id/TravelTitle_Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="serif"
-        android:text="Travel"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/travelDescription_Text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/travelDescription_Text"
-        android:layout_width="269dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TravelTitle_Text"
-        tools:text="Please toggle all those that apply to you!" />
-
-    <TextView
         android:id="@+id/TravelDescription_Text"
         android:layout_width="343dp"
         android:layout_height="25dp"
@@ -47,53 +14,83 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="237dp"
+        android:text="If you do not use any of these just leave them blank!"
         app:layout_constraintBottom_toTopOf="@+id/TravelContinue_Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trainTravel_Switch"
-        tools:text="If you do not use any of these, just leave them blank!" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Switch
-        android:id="@+id/trainTravel_Switch"
-        android:layout_width="81dp"
-        android:layout_height="26dp"
+    <TextView
+        android:id="@+id/travelDescription_Text"
+        android:layout_width="269dp"
+        android:layout_height="30dp"
         android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="270dp"
-        android:layout_marginRight="270dp"
-        android:text="Train"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="Please toggle all those that apply to you!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carTravel_Switch" />
+        app:layout_constraintTop_toBottomOf="@+id/TravelTitle_Text" />
 
     <Switch
         android:id="@+id/carTravel_Switch"
         android:layout_width="81dp"
         android:layout_height="26dp"
         android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="270dp"
-        android:layout_marginRight="270dp"
+        android:layout_marginBottom="30dp"
         android:text="Car"
+        app:layout_constraintBottom_toTopOf="@+id/trainTravel_Switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/busTravel_Switch" />
+
+    <TextView
+        android:id="@+id/TravelTitle_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="serif"
+        android:text="Travel"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/travelDescription_Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/busTravel_Switch2" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.325" />
 
     <Switch
-        android:id="@+id/busTravel_Switch2"
+        android:id="@+id/busTravel_Switch"
         android:layout_width="81dp"
         android:layout_height="26dp"
         android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="270dp"
-        android:layout_marginRight="270dp"
+        android:layout_marginBottom="30dp"
         android:text="Bus"
+        app:layout_constraintBottom_toTopOf="@+id/carTravel_Switch"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/travelDescription_Text" />
+
+    <Switch
+        android:id="@+id/trainTravel_Switch"
+        android:layout_width="81dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="270dp"
+        android:text="Train"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carTravel_Switch" />
 
     <TextView
         android:id="@+id/TravelQuestion_Text"
@@ -102,7 +99,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="154dp"
         android:text="How do you travel on a day to day basis?"
-        app:layout_constraintBottom_toTopOf="@+id/busTravel_Switch2"
+        app:layout_constraintBottom_toTopOf="@+id/busTravel_Switch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TravelDescription_Text" />

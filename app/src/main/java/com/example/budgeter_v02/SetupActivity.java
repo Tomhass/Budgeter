@@ -24,9 +24,16 @@ public class SetupActivity extends AppCompatActivity {
     // Access a Cloud FireStore instance from your Activity
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // Variables for firebase
-    int income;
-    int saving;
+    // Variables for database
+    static int income;
+    static int saving;
+    // Methods to access variables above
+    public static int getIncome() {
+        return income;
+    }
+    public static int getSaving() {
+        return saving;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,28 +98,28 @@ public class SetupActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, Object> data = new HashMap<>();
-                data.put("income", income);
-                data.put("saving", saving);
-
-                db.collection("data")
-                        .add(data)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "Successful! ID: " + documentReference.getId());
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error adding document WARNING THIS IS ERROR MESSAGE THOMAS ", e);
-                            }
-                        });
-
+                Log.d(TAG, saving + ", " + income);
                 startActivity(new Intent(SetupActivity.this, InfoActivity.class));
-
             }
         });
     }
 }
+
+//                 Map<String, Object> data = new HashMap<>();
+//                data.put("income", income);
+//                data.put("saving", saving);
+//
+//                db.collection("data")
+//                        .add(data)
+//                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                            @Override
+//                            public void onSuccess(DocumentReference documentReference) {
+//                                Log.d(TAG, "Successful! ID: " + documentReference.getId());
+//                            }
+//                        })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                Log.w(TAG, "Error adding document WARNING THIS IS ERROR MESSAGE THOMAS ", e);
+//                            }
+//                        });
