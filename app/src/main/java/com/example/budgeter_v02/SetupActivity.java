@@ -25,8 +25,8 @@ public class SetupActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // Variables for database
-    static int income;
-    static int saving;
+    private static int income;
+    private static int saving;
     // Methods to access variables above
     public static int getIncome() {
         return income;
@@ -49,6 +49,8 @@ public class SetupActivity extends AppCompatActivity {
     private void configureIncomeSeekBar() {
         final SeekBar incomeSeekBar = findViewById(R.id.Income_SeekBar);
         final TextView incomeTextView = findViewById(R.id.Income_Text);
+        final SeekBar savingSeekBar = findViewById(R.id.Saving_SeekBar);
+
         // When SeekBar is changed
         incomeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             // Variable to get current progress of SeekBar
@@ -63,8 +65,10 @@ public class SetupActivity extends AppCompatActivity {
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onStopTrackingTouch(SeekBar seekBar)
+            {
                 income = y;
+                savingSeekBar.setMax(income);
             }
         });
     }

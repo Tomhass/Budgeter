@@ -26,7 +26,7 @@
         android:layout_width="269dp"
         android:layout_height="30dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="60dp"
         android:text="Please toggle all those that apply to you!"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,4 +115,44 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/currentMoney_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="171dp"
+        android:layout_marginBottom="65dp"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/TravelContinue_Button"
+        app:layout_constraintStart_toEndOf="@+id/currentMoneyPoundSign_TextView" />
+
+    <TextView
+        android:id="@+id/currentMoneyPoundSign_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="65dp"
+        android:text="£"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/currentMoney_TextView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/money_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginBottom="5dp"
+        android:text="Funds left:"
+        app:layout_constraintBottom_toTopOf="@+id/currentMoney_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
