@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MembersActivity">
 
-    <TextView
-        android:id="@+id/MemberTitle_Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="serif"
-        android:text="Welcome..."
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/MembersLogout_Button"
         android:layout_width="wrap_content"
@@ -27,4 +15,79 @@
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/FundsText_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="173dp"
+        android:text="Funds:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListView" />
+
+    <TextView
+        android:id="@+id/funds_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="198dp"
+        android:text="0"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/PoundSign_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/FundsText_TextView" />
+
+    <Button
+        android:id="@+id/Expense_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="20dp"
+        android:text="Add Expense"
+        app:layout_constraintBottom_toTopOf="@+id/Outgoing_Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Outgoing_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="88dp"
+        android:text="Change Outgoings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/ListView"
+        android:layout_width="411dp"
+        android:layout_height="296dp"
+        android:stackFromBottom="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/PoundSign_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="10dp"
+        android:text="£"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/funds_TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FundsText_TextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

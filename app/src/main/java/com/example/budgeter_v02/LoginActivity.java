@@ -17,11 +17,23 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Set;
 
 public class LoginActivity extends AppCompatActivity {
 
     private String TAG = "BudgeterLogin";
     private FirebaseAuth mAuth;
+    public String uID = "";
+    public Boolean setupComplete;
+    private FirebaseDatabase mDatabase;
+    private UserLookup userLookup;
+    private DatabaseReference myRef;
 
 
     @Override
@@ -32,6 +44,23 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         // Initialise UI elements
         configureLoginContinueButton();
+        mDatabase = FirebaseDatabase.getInstance();
+        myRef = mDatabase.getReference();
+        userLookup = new UserLookup();
+
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     private void configureLoginContinueButton() {
@@ -53,10 +82,15 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    uID = mAuth.getCurrentUser().getUid();
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    startActivity(new Intent(LoginActivity.this, MembersActivity.class));
+
+                                    if(userLookup.isSetupComplete()) {
+                                        startActivity(new Intent(LoginActivity.this, MembersActivity.class));
+                                    } else {
+                                        startActivity(new Intent(LoginActivity.this, SetupActivity.class));
+                                    }
 
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -67,7 +101,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    private void showData(DataSnapshot dataSnapshot) {
+        for(DataSnapshot ds : dataSnapshot.getChildren()) {
+            UserLookup userLookup = new UserLookup();
+            userLookup.setSetupComplete(ds.child(uID).getValue(UserLookup.class).isSetupComplete());
+
+            setupComplete = userLookup.isSetupComplete();
+        }
     }
 
 }

@@ -4,22 +4,26 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.icu.text.IDNA;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
 public class InfoActivity extends AppCompatActivity {
-    // Variables for database
+    // Variables
     private static boolean train;
     private static boolean car;
     private static boolean bus;
     private static int currentTotal;
+    private String TAG = "Budgeter";
+    int carCost, busCost, trainCost;
+    int income, saving, total;
 
 
     // Methods for accessing above variables
@@ -35,11 +39,6 @@ public class InfoActivity extends AppCompatActivity {
     public static int getCurrentTotal() { return currentTotal; }
     public static int setCurrentTotal(int input) { currentTotal = input; return currentTotal; }
 
-    private String text = "";
-    int carCost, busCost, trainCost;
-    int income, saving, total;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +49,12 @@ public class InfoActivity extends AppCompatActivity {
         saving = SetupActivity.getSaving();
         total = income - saving;
 
+
         configureTrainSwitch();
         configureCarSwitch();
         configureBusSwitch();
+        configureContinueButton();
+
         final TextView currentMoney = (TextView) findViewById(R.id.currentMoney_TextView);
         currentMoney.setText(String.valueOf(total));
 
@@ -84,9 +86,9 @@ public class InfoActivity extends AppCompatActivity {
                                 trainSwitch.setChecked(false);
                                 dialog.cancel();
                             } else {
-                                carCost = Integer.parseInt(output);
+                                trainCost = Integer.parseInt(output);
                                 // Setting funds left
-                                total = total - carCost;
+                                total = total - trainCost;
                                 currentMoney.setText(String.valueOf(total));
                                 setCurrentTotal(total);
 
@@ -101,6 +103,10 @@ public class InfoActivity extends AppCompatActivity {
                     });
                     // Render dialogue box
                     builder.show();
+                } else {
+                    total = total + trainCost;
+                    setCurrentTotal(total);
+                    currentMoney.setText(String.valueOf(total));
                 }
 
             }
@@ -150,6 +156,11 @@ public class InfoActivity extends AppCompatActivity {
                     });
                     // Render dialogue box
                     builder.show();
+                } else {
+                    total = total + carCost;
+                    setCurrentTotal(total);
+                    currentMoney.setText(String.valueOf(total));
+
                 }
             }
         });
@@ -181,9 +192,9 @@ public class InfoActivity extends AppCompatActivity {
                                 busSwitch.setChecked(false);
                                 dialog.cancel();
                             } else {
-                                carCost = Integer.parseInt(output);
+                                busCost = Integer.parseInt(output);
                                 // Setting funds left
-                                total = total - carCost;
+                                total = total - busCost;
                                 currentMoney.setText(String.valueOf(total));
                                 setCurrentTotal(total);
                             }
@@ -197,11 +208,26 @@ public class InfoActivity extends AppCompatActivity {
                     });
                     // Render dialogue box
                     builder.show();
+                } else {
+                    total = total + busCost;
+                    setCurrentTotal(total);
+                    currentMoney.setText(String.valueOf(total));
+
                 }
             }
         });
     }
+    public void configureContinueButton() {
+        final Button continueButton = (Button) findViewById(R.id.TravelContinue_Button);
+        continueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCurrentTotal(total);
 
+                startActivity(new Intent(InfoActivity.this, BillActivity.class));
+            }
+        });
+    }
 }
 
 

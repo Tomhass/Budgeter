@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animationCache="true"
+    tools:context=".BillActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="171dp"
+        android:layout_marginBottom="9dp"
+        android:text="Bills"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/BillsDescription_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currentMoney_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="306dp"
+        android:text="0"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/currentMoneyPoundSign_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/money_TextView" />
+
+    <TextView
+        android:id="@+id/currentMoneyPoundSign_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="5dp"
+        android:text="£"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/currentMoney_TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/money_TextView" />
+
+    <TextView
+        android:id="@+id/money_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginBottom="5dp"
+        android:text="Funds left:"
+        app:layout_constraintBottom_toTopOf="@+id/currentMoneyPoundSign_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MobilePhone_EditText" />
+
+    <TextView
+        android:id="@+id/Electricity_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="306dp"
+        android:layout_marginBottom="10dp"
+        android:text="Electricity"
+        app:layout_constraintBottom_toTopOf="@+id/Electricity_EditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BillsDescription_TextView" />
+
+    <TextView
+        android:id="@+id/Broadband_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="300dp"
+        android:layout_marginBottom="4dp"
+        android:text="Broadband"
+        app:layout_constraintBottom_toTopOf="@+id/Broadband_EditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Gas_TextView"
+        android:layout_width="25dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="345dp"
+        android:layout_marginBottom="5dp"
+        android:text="Gas"
+        app:layout_constraintBottom_toTopOf="@+id/Gas_EditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Electricity_EditText" />
+
+    <EditText
+        android:id="@+id/Gas_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="206dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/Telephone_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Gas_TextView" />
+
+    <TextView
+        android:id="@+id/MobilePhone_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="282dp"
+        android:layout_marginBottom="4dp"
+        android:text="Mobile Phone"
+        app:layout_constraintBottom_toTopOf="@+id/MobilePhone_EditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/Telephone_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/Broadband_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Telephone_TextView" />
+
+    <TextView
+        android:id="@+id/Telephone_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="302dp"
+        android:layout_marginBottom="5dp"
+        android:text="Telephone"
+        app:layout_constraintBottom_toTopOf="@+id/Telephone_EditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Gas_EditText" />
+
+    <TextView
+        android:id="@+id/BillsDescription_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="105dp"
+        android:lineSpacingExtra="18sp"
+        android:text="Enter the bills you pay a month. "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/MobilePhone_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="206dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MobilePhone_TextView" />
+
+    <EditText
+        android:id="@+id/Electricity_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="208dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Electricity_TextView" />
+
+    <EditText
+        android:id="@+id/Broadband_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/MobilePhone_TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/BillsContinue_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="50dp"
+        android:text="Continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
